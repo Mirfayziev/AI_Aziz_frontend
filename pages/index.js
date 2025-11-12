@@ -8,14 +8,18 @@ export default function Home() {
 
   async function sendMessage() {
     setLoading(true);
+    setReply("");
+
     try {
       const res = await axios.post(
         "https://ai-aziz-backend.onrender.com/chat",
-        { text: msg }
+        { text: msg },
+        { timeout: 10000 } // 10 soniya kutadi
       );
       setReply(res.data.response);
     } catch (error) {
-      setReply("Xatolik yuz berdi. Backend manzilini tekshiring.");
+      console.error("Xatolik tafsiloti:", error);
+      setReply("Xatolik yuz berdi: " + error.message);
     } finally {
       setLoading(false);
     }
@@ -24,14 +28,12 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center p-6 bg-gray-100">
       <h1 className="text-2xl font-bold mb-4">🤖 AI Aziz</h1>
-
       <textarea
         value={msg}
         onChange={(e) => setMsg(e.target.value)}
         placeholder="Xabar yozing..."
         className="border p-2 w-1/2 h-24 mb-4 rounded"
       />
-
       <button
         onClick={sendMessage}
         disabled={loading}
@@ -46,3 +48,5 @@ export default function Home() {
     </div>
   );
 }
+
+
