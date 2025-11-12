@@ -1,12 +1,18 @@
 {
   "name": "AI Aziz",
   "short_name": "AI Aziz",
+  "description": "AI Aziz — sizning shaxsiy sun’iy intellekt yordamchingiz",
   "start_url": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#000000",
   "theme_color": "#000000",
-  "description": "AI Aziz — sizning sun’iy intellekt yordamchingiz",
   "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
     {
       "src": "/logo.png",
       "sizes": "512x512",
