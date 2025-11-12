@@ -2,7 +2,7 @@
   "name": "AI Aziz",
   "short_name": "AI Aziz",
   "description": "AI Aziz — sizning shaxsiy sun’iy intellekt yordamchingiz.",
-  "start_url": "https://ai-aziz-frontend.onrender.com/index.html",
+  "start_url": "https://ai-aziz-frontend.onrender.com/",
   "scope": "https://ai-aziz-frontend.onrender.com/",
   "id": "https://ai-aziz-frontend.onrender.com/",
   "display": "standalone",
