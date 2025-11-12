@@ -14,7 +14,6 @@
   "enableNotifications": true,
   "startUrl": "/",
   "iconUrl": "https://ai-aziz-frontend.onrender.com/icon-512.png",
-  "maskableIconUrl": "https://ai-aziz-frontend.onrender.com/icon-512.png",
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
     "path": "C:\\Users\\fayzi\\OneDrive\\Desktop\\AI_Aziz_frontend\\android.keystore",
