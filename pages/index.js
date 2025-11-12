@@ -12,41 +12,62 @@ export default function Home() {
 
     try {
       const res = await axios.post(
-        "https://ai-aziz-backend.onrender.com/chat",
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/chat`,
         { text: msg },
-        { timeout: 10000 } // 10 soniya kutadi
+        { timeout: 15000 }
       );
       setReply(res.data.response);
     } catch (error) {
-      console.error("Xatolik tafsiloti:", error);
-      setReply("Xatolik yuz berdi: " + error.message);
+      setReply("❌ Xatolik: " + error.message);
     } finally {
       setLoading(false);
     }
   }
 
+  async function playVoice() {
+    try {
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/speak`,
+        new URLSearchParams({ text: reply }),
+        { responseType: "blob" }
+      );
+      const url = window.URL.createObjectURL(res.data);
+      new Audio(url).play();
+    } catch (e) {
+      alert("Ovozli javobda xato: " + e.message);
+    }
+  }
+
   return (
-    <div className="min-h-screen flex flex-col items-center p-6 bg-gray-100">
-      <h1 className="text-2xl font-bold mb-4">🤖 AI Aziz</h1>
+    <div className="min-h-screen flex flex-col items-center bg-gray-100 p-6">
+      <h1 className="text-3xl font-bold mb-4">🤖 AI Aziz</h1>
       <textarea
+        className="border p-2 w-1/2 h-24 rounded mb-4"
+        placeholder="Xabar yozing..."
         value={msg}
         onChange={(e) => setMsg(e.target.value)}
-        placeholder="Xabar yozing..."
-        className="border p-2 w-1/2 h-24 mb-4 rounded"
       />
-      <button
-        onClick={sendMessage}
-        disabled={loading}
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-      >
-        {loading ? "Yuborilmoqda..." : "Yuborish"}
-      </button>
+      <div className="flex space-x-4">
+        <button
+          onClick={sendMessage}
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
+          {loading ? "Yuborilmoqda..." : "Yuborish"}
+        </button>
+        <button
+          onClick={playVoice}
+          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+        >
+          🔊 Ovozli javob
+        </button>
+      </div>
 
-      <div className="mt-6 bg-white p-4 rounded shadow-md w-1/2">
+      <div className="bg-white mt-6 p-4 rounded shadow-md w-1/2 min-h-[100px]">
         <p>{reply}</p>
       </div>
     </div>
   );
 }
+
 
 
