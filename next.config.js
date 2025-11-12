@@ -1,17 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'standalone',
-  async headers() {
-    return [
-      {
-        source: '/manifest.json',
-        headers: [
-          { key: 'Content-Type', value: 'application/manifest+json' },
-        ],
-      },
-    ];
-  },
+  env: {
+    NEXT_PUBLIC_BACKEND_URL: "https://ai-aziz-backend.onrender.com"
+  }
 };
 
 module.exports = nextConfig;
