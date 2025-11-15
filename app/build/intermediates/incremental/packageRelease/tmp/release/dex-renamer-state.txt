@@ -1,0 +1,4 @@
+#Wed Nov 12 12:51:40 PST 2025
+base.0=C\:\\Users\\fayzi\\OneDrive\\Desktop\\AI_Aziz_frontend\\app\\build\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

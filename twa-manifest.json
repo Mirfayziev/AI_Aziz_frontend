@@ -16,8 +16,8 @@
   "iconUrl": "https://ai-aziz-frontend.onrender.com/icon-512.png",
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
-    "path": "C:\\Users\\fayzi\\OneDrive\\Desktop\\AI_Aziz_frontend\\android.keystore",
-    "alias": "ai_aziz_key"
+    "path": "ai_aziz_key",
+    "alias": "android"
   },
   "appVersionName": "1",
   "appVersionCode": 1,
